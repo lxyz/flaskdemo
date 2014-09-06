@@ -1,0 +1,10 @@
+body { text-align: center; }
+#top {position: relative;z-index: 1;height: 52px;}
+#nav{}
+#nav li{ float:left;width: 60px;}
+#nav a{ margin:0 15px;height:42px; display:block; line-height:42px; color:#999999; font-size:15px;}
+#nav a:hover{color: #f54f4a;opacity: 0.98; border:none;text-decoration: none;}
+#nav a.cur{color:#f54f4a; border-bottom:3px solid }
+#nav a.cur:hover{margin:0 15px;border-width: 0}
+#head {    height: 45px;background: #fff;border-bottom: 1px solid #dcdcdc;width: 100%;z-index: 1000;top: 0px;position: fixed;padding-top: 7px;}
+.mainWrap {padding: 0 100px;overflow: hidden;min-width: 950px;}

@@ -1,0 +1,19 @@
+/*reset*/
+*{ margin: 0;padding: 0; }
+body,
+h1, h2, h3, h4, h5, h6,
+li, ul, ol, dt, dd, dl,
+p, div, span, label, b, strong,
+table, tr, td, th,
+form, select, option, textarea,
+fieldset { margin: 0px; border: 0px; padding: 0px; text-decoration: none; outline: none; }
+input,button,select,textarea{ outline:none;}
+body { color: #4c4c4c; font-family: "microsoft yahei", "微软雅黑", "simsun", "宋体"; font-size: 12px; vertical-align:baseline; line-height:24px;}
+input, textarea { font-family: "microsoft yahei", "微软雅黑", "simsun", "宋体"; }
+a { text-decoration: none; }
+a img { border: 0; }
+table { border-collapse: collapse; }
+select, textarea { border: 1px solid #e5e5e5; box-shadow: #ececec 0 1px 2px 0 inset; color: #615b5b; }
+select { cursor: pointer; }
+ul{ list-style:none}
+li {list-style-type: none;}

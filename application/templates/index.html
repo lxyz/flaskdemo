@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{%block body %}
+<link rel="stylesheet" type="text/css" href="static/waterfall/css/style.css">
+<div id="waterfall"></div>
+<script type="text/javascript" src="static/waterfall/js/jquery.waterfall.js"></script>
+<script type="text/javascript">
+    $(function(){
+        // 按需加载方式
+        var wf_page = 0;
+        //var autoloadConf = {page : 1, page_size : 4 , c : curr_category};
+        $('#waterfall').waterfall({
+              colWidth: 230,
+            // 自定义跨域请求
+            ajaxFunc: function(success, error){
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/autoload',
+                    data :{page : ++wf_page, page_size : 4 , c : curr_category},
+                    cache: false,
+                    dataType:'json',
+                    timeout: 60000,
+                    success: success,
+                    error: error
+                });
+            },
+            createHtml: function(data){
+                return '<div class="wf_item_inner">' +
+                    '<a href="/pic/'+ data.image_id +'" class="thumb" target="_blank">' +
+                    '<img class="thumb_img"  src="http://jpretty.qiniudn.com/origin/thumb/'+ data.image_save_name +'" alt="'+ data.alt +'"/></a>' +
+                    '<p class="desc" style="margin-top:1px;">'+ data.alt +'</p>' +
+                    '<a style="display:block;color:#060;" href="/welcome/pic/?image_id='+ data.image_id +'" target="_blank">查看大图</a>' +
+                    '</div>';
+            }
+        });
+    });
+</script>
+{% endblock %}

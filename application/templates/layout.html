@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script src="/static/waterfall/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/static/style/comm.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/index.css">
+    <title>首页--瀑布流</title>
+</head>
+<body>
+<div id="top">
+    <div id="head">
+        <div class="mainWrap">
+            <a class="logo" href="http://www.iyi8.com" title="爱衣吧，精彩图库"></a>
+            <div id="nav">
+                <ul>
+                    <li><a id="nav6"  class="nav-" href="/">首页</a></li>
+                    <li><a id="nav10" class="nav-xinggan" href="/xinggan">性感</a></li>
+                    <li><a id="nav28" class="nav-qingchun" href="/qingchun">清纯</a></li>
+                    <li><a id="nav7"  class="nav-guzhuang" href="/guzhuang" class="cur">古装</a></li>
+                    <li><a id="nav8"  class="nav-yishu" href="/yishu">艺术</a></li>
+                    <li><a id="nav9"  class="nav-xiangche" href="/xiangche">香车</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var curr_category = '{{category}}';
+    $('#nav .nav-' + curr_category).addClass('cur');
+</script>
+{% block body %}{% endblock %}
+</body>
+</html>

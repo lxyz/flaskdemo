@@ -9,7 +9,7 @@ from application.models import *
 def indexpage(category=''):
     return render_template('index.html', category = category)
 
-@app.route('/pic/<id>')
+@app.route('/pic/<int:id>')
 def info(id):
     subimgs = SubImage.query.filter_by(image_id=id).all()
     subimages = []
@@ -22,13 +22,9 @@ def info(id):
 
 @app.route('/api/autoload')
 def autoload():
-    try:
-        page = int(request.args.get('page'))
-        page_size = int(request.args.get('page_size'))
-        c = request.args.get('c')
-    except:
-        page = 1
-        page_size = 4
+    page = int(request.args.get('page', 1, type=int))
+    page_size = int(request.args.get('page_size', 10, type=int))
+    c = request.args.get('c', '')
     if c:
         imageList = Image.query.filter_by(category=c).paginate(page, page_size, False).items
     else:

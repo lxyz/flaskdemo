@@ -17,7 +17,7 @@ def info(id):
         subimages.append(sub.as_dict())
     if not subimgs:
         abort(404)
-    return render_template('pic.html', jsonstr = json.dumps(subimages))
+    return render_template('pic.html',  imglist = subimages)
 
 
 @app.route('/api/autoload')

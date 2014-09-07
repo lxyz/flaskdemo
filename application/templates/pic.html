@@ -10,19 +10,21 @@
     <div id="content">
         <img id="bigimage">
         <script>
-            var jsonstr = '{{jsonstr}}'.replace(/&#34;/g, '"');
-            var objs = eval('(' + jsonstr + ')');
-            var i = 0;
-            current = objs[i++];
-            $('#bigimage').attr('src', 'http://jpretty.qiniudn.com/origin/big/' + current.image_save_name);
-            $('#bigimage').click(function() {
-                if(i >= objs.length) { alert('下面没有了');return; }
-                //$(this).fadeOut(1500).attr('src', 'http://jpretty.qiniudn.com/origin/big/' + objs[i++].image_save_name).fadeIn();
-                $(this).fadeOut().queue(function(next) {
-                    $(this).attr('src', 'http://jpretty.qiniudn.com/origin/big/' + objs[i++].image_save_name).fadeIn()
-                    next();
+            var objs = {{imglist|tojson}};
+            if(objs.length > 0) {
+                var i = 0;
+                current = objs[i++];
+                $('#bigimage').attr('src', 'http://jpretty.qiniudn.com/origin/big/' + current.image_save_name);
+                $('title').text(current.alt);
+                $('#bigimage').click(function() {
+                    if(i >= objs.length) { alert('下面没有了');return; }
+                    //$(this).fadeOut(1500).attr('src', 'http://jpretty.qiniudn.com/origin/big/' + objs[i++].image_save_name).fadeIn();
+                    $(this).fadeOut().queue(function(next) {
+                        $(this).attr('src', 'http://jpretty.qiniudn.com/origin/big/' + objs[i++].image_save_name).fadeIn()
+                        next();
+                    });
                 });
-            });
+            }
         </script>
     </div>
 {% endblock %}

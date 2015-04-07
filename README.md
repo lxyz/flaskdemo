@@ -1,9 +1,7 @@
-#flaskdemo
+### Installation
 
-#Installation
-
->nginx配置一个server
-<code><pre>
+nginx配置一个server
+```
 server {
         listen 80;
         server_name flaskdemo.jpretty.net;
@@ -16,10 +14,9 @@ server {
         error_log /var/log/nginx/flaskdemo.jpretty.net.error.log;
         access_log /var/log/nginx/flaskdemo.jpretty.net.access.log;
 }
-</code></pre>
-
->uwsgi
-<code><pre>
+```
+uwsgi
+```
 <uwsgi>
 
      <pythonpath>/home/adam/webapp/pyapp/flaskdemo</pythonpath>
@@ -37,4 +34,4 @@ server {
      <memory-report/>
 
 </uwsgi>
-</code></pre>
+```

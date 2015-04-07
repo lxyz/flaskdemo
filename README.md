@@ -1,5 +1,6 @@
 ### Installation
 
+
 nginx配置一个server
 ```
 server {
@@ -15,7 +16,10 @@ server {
         access_log /var/log/nginx/flaskdemo.jpretty.net.access.log;
 }
 ```
+
 uwsgi
+
+
 ```
 <uwsgi>
 
